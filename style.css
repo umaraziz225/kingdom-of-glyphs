@@ -1,0 +1,67 @@
+/* Parchment-on-dark medieval theme. Monospace system fonts only. */
+:root {
+  --bg: #1b1610;
+  --panel: #2a2118;
+  --border: #8a6a3b;
+  --ink: #e8d9b5;
+  --gold: #e6b800;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding: 8px;
+  background: var(--bg); color: var(--ink);
+  font-family: "Courier New", Consolas, monospace;
+}
+header { text-align: center; overflow-x: auto; }
+.banner { display: inline-block; margin: 0; color: var(--gold); text-align: left; font-family: "Courier New", Consolas, monospace; white-space: pre; line-height: 1.1; letter-spacing: 0; font-size: clamp(10px, 1.8vw, 18px); }
+.title-small { display: none; margin: 4px 0; color: var(--gold); font-size: 1.4rem; letter-spacing: 2px; }
+
+main { display: flex; gap: 12px; align-items: flex-start; max-width: 1400px; margin: 0 auto; }
+#mapWrap { flex: 1; min-width: 0; }
+aside { width: 340px; display: flex; flex-direction: column; gap: 12px; }
+
+#map { display: block; border: 3px double var(--border); background: #120e09; touch-action: none; cursor: crosshair; user-select: none; -webkit-touch-callout: none; }
+#map:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+.panel { background: var(--panel); border: 3px double var(--border); padding: 8px; }
+.panel h2 { margin: 0 0 6px; font-size: 1rem; color: var(--gold); }
+.hint { margin: 6px 0 0; font-size: .75rem; opacity: .7; }
+
+#palette { display: grid; grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 4px; }
+#palette button {
+  background: #3a2e20; color: var(--ink); border: 1px solid var(--border);
+  font: inherit; font-size: .75rem; padding: 4px 2px; cursor: pointer; text-align: center;
+}
+#palette button b { display: block; font-size: 1.3rem; }
+#palette button[aria-pressed="true"] { background: var(--border); color: #000; }
+#palette button.poor { opacity: .45; }
+#ledger { width: 100%; border-collapse: collapse; font-size: .75rem; }
+#ledger th, #ledger td { text-align: left; padding: 1px 3px; }
+#ledger th[scope="row"] { text-transform: capitalize; }
+#ledger .trend { white-space: pre; letter-spacing: 0; color: var(--gold); }
+.btnrow { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.btnrow button { background: #3a2e20; color: var(--ink); border: 1px solid var(--border); font: inherit; font-size: .8rem; padding: 4px 8px; cursor: pointer; }
+#resetBtn { background: #5a2a20; }
+#nextAch { margin: 0 0 6px; white-space: pre-wrap; font: inherit; font-size: .8rem; color: var(--gold); }
+#achList { list-style: none; margin: 0; padding: 0; font-size: .8rem; columns: 2; }
+#tip { margin: 0; font-size: .85rem; }
+dialog { background: var(--panel); color: var(--ink); border: 3px double var(--border); max-width: 90vw; font-family: inherit; }
+dialog::backdrop { background: rgba(0, 0, 0, .7); }
+dialog h2 { margin-top: 0; color: var(--gold); }
+#evBtns { display: flex; gap: 8px; flex-wrap: wrap; }
+#evBtns button { flex: 1; background: #3a2e20; color: var(--ink); border: 1px solid var(--border); font: inherit; padding: 8px; cursor: pointer; }
+button:focus-visible, a:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+#log { list-style: none; margin: 0; padding: 0; height: 120px; overflow-y: auto; font-size: .8rem; }
+#log li { padding: 1px 0; border-bottom: 1px dotted #5a4730; }
+
+footer { text-align: center; margin-top: 12px; font-size: .8rem; opacity: .8; }
+footer a { color: var(--gold); }
+
+/* Phones: stack the panels under the map. */
+@media (max-width: 800px) {
+  main { flex-direction: column; align-items: stretch; }
+  aside { width: 100%; }
+  .banner { display: none; }
+  .title-small { display: block; }
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kingdom of Glyphs</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+<pre class="banner" role="img" aria-label="Kingdom of Glyphs">
+#   # ##### #   #  #### ####   ###  #   #
+#  #    #   ##  # #     #   # #   # ## ##
+###     #   # # # #  ## #   # #   # # # #
+#  #    #   #  ## #   # #   # #   # #   #
+#   # ##### #   #  #### ####   ###  #   #
+
+ ###  #####      #### #     #   # ####  #   #  ####
+#   # #         #     #      # #  #   # #   # #
+#   # ####      #  ## #       #   ####  #####  ###
+#   # #         #   # #       #   #     #   #     #
+ ###  #          #### #####   #   #     #   # ####
+</pre>
+    <h1 class="title-small">KINGDOM OF GLYPHS</h1>
+  </header>
+
+  <main>
+    <section id="mapWrap" aria-label="Kingdom map">
+      <canvas id="map" tabindex="0" aria-label="Kingdom map. Click or tap to place the selected tile. With a keyboard, use arrow keys to move and Enter to place."></canvas>
+    </section>
+
+    <aside>
+      <section class="panel" aria-labelledby="toolsTitle">
+        <h2 id="toolsTitle">Builder's Tools</h2>
+        <div id="palette" role="toolbar" aria-label="Tile palette"></div>
+        <p class="hint">Keys: 1-9, 0, Q, W, E pick a tile. X erases.</p>
+      </section>
+
+      <section class="panel" aria-labelledby="ledgerTitle">
+        <h2 id="ledgerTitle">Kingdom Ledger - <span id="dayLabel">Day 1</span></h2>
+        <table id="ledger">
+          <thead><tr><th>Item</th><th>Have</th><th>In/day</th><th>Out/day</th><th>Trend</th></tr></thead>
+          <tbody id="ledgerBody"></tbody>
+        </table>
+        <div class="btnrow">
+          <button id="exportBtn" type="button">Export Save</button>
+          <button id="importBtn" type="button">Import Save</button>
+          <button id="resetBtn" type="button">Reset Kingdom</button>
+        </div>
+        <input id="importInput" type="file" accept=".json,application/json" hidden>
+      </section>
+
+      <section class="panel" aria-labelledby="scoreTitle">
+        <h2 id="scoreTitle">Kingdom Score: <span id="score">0</span></h2>
+        <pre id="nextAch"></pre>
+        <ul id="achList"></ul>
+      </section>
+
+      <section class="panel" aria-labelledby="tipTitle">
+        <h2 id="tipTitle">Scribe's Tips</h2>
+        <p id="tip"></p>
+      </section>
+
+      <section class="panel" aria-labelledby="logTitle">
+        <h2 id="logTitle">Royal Log</h2>
+        <ul id="log" aria-live="polite"></ul>
+      </section>
+    </aside>
+  </main>
+
+  <dialog id="eventModal" aria-labelledby="evTitle">
+    <h2 id="evTitle"></h2>
+    <p id="evText"></p>
+    <div id="evBtns"></div>
+  </dialog>
+
+  <footer>
+    Built by Umar Aziz - CSUSM MIS ·
+    <a href="https://github.com/umaraziz225/kingdom-of-glyphs">GitHub repo</a>
+  </footer>
+
+  <script src="game.js"></script>
+</body>
+</html>
